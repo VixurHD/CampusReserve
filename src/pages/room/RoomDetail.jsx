@@ -12,13 +12,13 @@ export default class RoomDetail extends Component {
   state = {
     room: {
       id: 1,
-      number: 'А-101',
+      number: '1-101',
       name: 'Учебная аудитория',
-      building: 'Корпус А',
+      building: 'Корпус 1',
       floor: '1 этаж',
       capacity: 30,
       icon: '🎓',
-      status: 'free', // free, busy
+      status: 'free',
       specs: {
         projector: 'Epson EB-X51',
         board: 'Маркерная + меловая',
@@ -110,6 +110,7 @@ export default class RoomDetail extends Component {
         <main>
           <div className="container">
             <div className="room-layout">
+              
               {/* LEFT COLUMN */}
               <div>
                 <RoomPreview room={room} />
@@ -120,6 +121,7 @@ export default class RoomDetail extends Component {
 
               {/* RIGHT COLUMN */}
               <div className="booking-panel">
+                {/* Карточка бронирования */}
                 <BookingPanel 
                   room={room}
                   selectedDate={selectedDate}
@@ -134,7 +136,19 @@ export default class RoomDetail extends Component {
                   onPurposeChange={this.handlePurposeChange}
                   onCommentChange={this.handleCommentChange}
                 />
+                
+                {/* Блок уведомлений — ОТДЕЛЬНЫЙ БЛОК ПОД КАРТОЧКОЙ */}
+                <div className="notify-box">
+                  <p>🔔 Уведомления</p>
+                  <span>Получить уведомление, когда аудитория освободится раньше?</span>
+                  <div style={{ marginTop: '8px' }}>
+                    <button className="btn btn-outline btn-sm" style={{ width: '100%', justifyContent: 'center' }}>
+                      Подписаться на уведомления
+                    </button>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
         </main>

@@ -4,9 +4,7 @@ const Hero = ({ freeCount = 14, totalCount = 45, buildingsCount = 4 }) => {
   return (
     <div className="hero">
       <div className="hero-inner">
-        <div className="hero-badge">
-          Кампус-Бронь · НГТУ НЭТИ
-        </div>
+        
         <h1>Каталог аудиторий</h1>
         <p>
           Найдите свободное пространство и забронируйте его в три клика — 

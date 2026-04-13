@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BookingItem = ({ booking, onCancel }) => {
   const getIconClass = () => {
@@ -34,14 +35,18 @@ const BookingItem = ({ booking, onCancel }) => {
       </div>
       <div className="booking-actions">
         <span className={`badge ${getBadgeClass()}`}>{getBadgeText()}</span>
-        <button className="btn btn-outline btn-sm">Подробнее</button>
+        <Link to={`/room/${booking.roomId || 1}`} className="btn btn-outline btn-sm">
+          Подробнее
+        </Link>
         {booking.status === 'active' && (
           <button className="btn btn-grey btn-sm" onClick={() => onCancel(booking.id)}>
             Отменить
           </button>
         )}
         {booking.status !== 'active' && (
-          <button className="btn btn-grey btn-sm">Повторить</button>
+          <Link to={`/room/${booking.roomId || 1}`} className="btn btn-grey btn-sm">
+            Повторить
+          </Link>
         )}
       </div>
     </div>
